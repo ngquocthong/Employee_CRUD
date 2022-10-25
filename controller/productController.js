@@ -1,6 +1,5 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const Employee = mongoose.model('Employee');
 const Product = mongoose.model('Product');
 const router = express.Router()
 const multer = require('multer')
@@ -36,7 +35,7 @@ router.post("/", upload.single("image") , (req, res) => {
     //     return next(error)
     //   }
     //  res.send(file)
-    if (req.body._id == "") {
+    if (req.bod y._id == "") {
        insertRecord(req, res);
     }
     else {
@@ -93,7 +92,7 @@ function updateRecord(req, res) {
 router.get('/:id', (req, res) => {
     Employee.findById(req.params.id, (err, doc) => {
         if (!err) {
-            res.render("employee/update", {
+            res.render("product/update", {
                 viewTitle: "Update Employee",
                 product: doc
             })
